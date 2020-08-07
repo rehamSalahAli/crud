@@ -1,0 +1,192 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/index_style.css">
+
+
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light  shadow p-3 mb-5 bg-white rounded fixed-top">
+        <div class="container">
+            <a class="navbar-brand m-auto" href="#">PRODUCTS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto mt-3">
+                    <button type="button" class="nav-item  btn btn-success  " id="add" onclick="showList()">Add Product
+                        <span class="sr-only">(current)</span></button>
+                    <button type="button" class="nav-item  btn btn-danger   " id="closed" onclick="closeList()">Close
+                        Form<span class="sr-only">(current)</span></button>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container cont1 " id="con">
+
+        <div class="form-group">
+            <label> Product Name : </label>
+            <input onkeyup="validateProduct(this.value)" type="text" id="productName" class="form-control" required>
+            <small class="text-muted">must be 3-20 characters </small>
+
+        </div>
+
+        <hr class=" border-primary">
+        <div class="form-group">
+            <label> Product Price: </label>
+            <input type="number" id="productPrice" class="form-control" required>
+            <small class="text-muted"> must be only number</small>
+        </div>
+        <hr class=" border-primary">
+        <div class="form-group">
+            <label> Product Category: </label>
+            <input type="text" id="productCategory" class="form-control" required>
+
+        </div>
+        <hr class=" border-primary">
+        <div class="form-group">
+            <label> Product Code: </label>
+            <input type="text" id="productCode" class="form-control" required>
+        </div>
+        <hr class=" border-primary">
+
+        <div class="form-group">
+            <label> Product Image : </label>
+            <input type="file" id="productImage" accept="image/*" name="image" id="file"
+                class="mb-2 form-control btn-secondary ">
+            <small class="text-muted">image must be in desktop</small>
+
+        </div>
+        <hr class=" border-primary mt-4">
+        <div class="form-group">
+            <label> Product Description: </label>
+            <textarea type="text" id="productDesc" class="form-control" required> </textarea>
+        </div>
+
+
+        <button onclick="addProduct()" class="btn btn-info float-right " disabled id="addBtn"> Add Product</button>
+
+        <div class="clearFix"></div>
+
+    </div>
+
+    <div class="cont2 container-fluid w-100  ">
+        <ul class="nav  nav-pills nav-justified tabs    " id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link   active" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
+                    aria-controls="pills-table" aria-selected="true">Table</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " id="pills-grid-tab" data-toggle="pill" href="#pills-grid" role="tab"
+                    aria-controls="pills-grid" aria-selected="false">Grid</a>
+            </li>
+        </ul>
+        <hr class="border-light">
+
+        <div class="tab-content " id="pills-tabContent">
+
+            <input onkeyup="searchProducts(this.value)" placeholder="  Search by name  ...."
+                class="form-control w-50 mx-auto mt-3">
+            <div class="table-responsive   tab-pane fade show active" id="pills-table" role="tabpanel"
+                aria-labelledby="pills-table-tab"">
+            
+       <table class=" table table-dark table-hover mt-3">
+
+                <thead class="thead-dark ">
+                    <th scope="col">#</th>
+                    <th scope="col"> Name </th>
+                    <th scope="col"> Price </th>
+                    <th scope="col"> Category </th>
+                    <th scope="col"> code </th>
+                    <th scope="col"> company </th>
+                    <th scope="col"> Model </th>
+                    <th scope="col"> Description </th>
+                    <th scope="col"> Actions </th>
+
+                </thead>
+                <tbody id="tableBody"></tbody>
+                </table>
+
+            </div>
+            <div class="card p-2" id="card" style="width: 20rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Delete Product</h5>
+                    <hr class="mb-4">
+                    <h6 class="card-subtitle mb-2 text-muted">Are you sure you want to delete these Records?</h6>
+                    <p class="card-text text-warning">This action cannot be undone</p>
+                    <hr class="mb-4">
+
+                    <input type="button" class="btn btn-primary ml-auto" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-danger mr-auto" value="Delete">
+                </div>
+            </div>
+            <div class="container tab-pane fade" id="pills-grid" role="tabpanel" aria-labelledby="pills-grid-tab">
+
+                <div class="row m-2" id="productsRow">
+
+                </div>
+            </div>
+        </div>
+
+        <div id="update">
+
+            <div class="update-div my-4 bg-light">
+                <div class="container py-5 ">
+                    <i id="closeIcon" class="far fa-window-close text-primary " onclick="closeDiv()"></i>
+                    <div class="form-group ">
+                        <label> Product Name : </label>
+                        <input type="text" id="updateProductName" class="form-control updateProdu">
+                    </div>
+                    <hr class=" border-primary">
+
+                    <div class="form-group">
+                        <label> Product Price: </label>
+                        <input type="number" id="updateProductPrice" class="form-control">
+                    </div>
+                    <hr class=" border-primary">
+
+                    <div class="form-group">
+                        <label> Product Category: </label>
+                        <input type="text" id="updateProductCategory" class="form-control">
+                    </div>
+                    <hr class=" border-primary">
+
+                    <div class="form-group">
+                        <label> Product Code: </label>
+                        <input type="text" id="updateProductCode" class="form-control">
+                    </div>
+                    <hr class=" border-primary">
+                    <div class="form-group">
+                        <label> Product Image : </label>
+
+                        <input type="file" id="updateProductImage" accept="image/*" name="image" id="file"
+                            class="mb-2 form-control btn-secondary ">
+                    </div>
+                    <hr class=" border-primary">
+
+                    <div class="form-group">
+                        <label> Product Description: </label>
+                        <textarea type="text" id="updateProductDesc" class="form-control"> </textarea>
+                    </div>
+                    <div id="updateBtn" class=" my-3"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/index_js.js"></script>
+
+
+</body>
+
+</html>

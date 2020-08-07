@@ -1,0 +1,186 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url(../images/Shopping.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav {
+    box-shadow: 5px 2px 2px 6px rgba(235, 153, 153, 0.315);
+}
+
+.cont1, .cont2 {
+    background-color: rgba(179, 177, 178, 0.527);
+    box-shadow: 5px 5px 5px 10px rgba(2, 47, 77, 0.705);
+    border-color: brown;
+    border-width: 5px;
+    margin-bottom: 40px;
+    padding: 10px;
+    position: relative;
+    top: 100px;
+}
+
+.cont1 {
+    display: none;
+}
+
+.cont2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+}
+
+label, input {
+    font-weight: 500;
+    font-size: 1.2rem !important;
+    color: black;
+    font-family: cursive;
+    line-height: 30px;
+    letter-spacing: 2px;
+    height: 45px !important;
+}
+
+hr {
+    border-width: 2px;
+    margin: 0 !important;
+}
+
+small {
+    font-size: 90% !important;
+    font-weight: 500 !important;
+}
+
+.fade:not(.show) {
+    display: none !important;
+}
+
+#closed {
+    display: none;
+}
+
+.tabs {
+    margin-top: 20px;
+    overflow: auto;
+    font-weight: 700 !important;
+    font-size: 1.2rem !important;
+    font-family: cursive;
+    line-height: 30px;
+    letter-spacing: 2px;
+}
+
+ul {
+    list-style: none;
+}
+
+table {
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding-bottom: 20px !important;
+    margin-right: auto;
+    margin-left: auto;
+    display: table !important;
+}
+
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.product {
+    position: relative;
+    background-color: rgba(120, 121, 114, 0.247);
+    box-shadow: 4px 4px 4px 2px #7c7878;
+}
+
+i {
+    cursor: pointer;
+}
+
+.card {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    z-index: 234567890;
+}
+
+.product .out {
+    overflow: hidden;
+    max-height: 200px;
+}
+
+.price {
+    background-color: tomato;
+    position: relative;
+    bottom: 85%;
+    margin: auto;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px;
+    border-radius: 0.25rem
+}
+
+.product .buttons {
+    font-size: 1rem !important;
+    border-width: 2px !important;
+}
+
+#productDesc>p {
+    position: absolute;
+    bottom: 75%;
+    right: 20%;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#update {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(180, 176, 176, 0.616);
+    overflow: scroll;
+}
+
+.update-div {
+    position: relative;
+    top: 60px;
+    left: 20%;
+    width: 60%;
+    overflow: scroll;
+}
+
+#closeIcon {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    font-size: 2rem;
+    display: block !important;
+    cursor: pointer;
+}
+
+#closeIcon:hover {
+    color: #e90808;
+}
+
+input [type="file" i] {
+    color: aqua !important;
+    background-color: blue !important;
+}
+
+.product p {
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    body, html {
+        font-size: 14px;
+    }
+}
